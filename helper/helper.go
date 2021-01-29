@@ -71,9 +71,19 @@ func GetConfiguration() Configuration {
 	}
 
 	configuration := Configuration{
-		os.Getenv(process.env.PORT),
-		os.Getenv("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"),
+		GetPort(),
+		"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority",
 	}
 
 	return configuration
 }
+
+func GetPort() string {
+var port = os.Getenv("PORT")
+// Set a default port if there is nothing in the environment
+if port == "" {
+		port = "4747"
+ 		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+ 	}
+ 	return ":" + port
+ }
