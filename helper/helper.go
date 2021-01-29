@@ -72,7 +72,7 @@ func GetConfiguration() Configuration {
 
 	configuration := Configuration{
 		os.Getenv(process.env.PORT),
-		os.Getenv("CONNECTION_STRING"),
+		os.Getenv("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"),
 	}
 
 	return configuration
