@@ -71,7 +71,7 @@ func GetConfiguration() Configuration {
 	}
 
 	configuration := Configuration{
-		os.Getenv("PORT"),
+		os.Getenv(process.env.PORT),
 		os.Getenv("CONNECTION_STRING"),
 	}
 
