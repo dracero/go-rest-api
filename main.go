@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"https://github.com/dracero/go-rest-api/tree/master/helper"
+	"github.com/dracero/go-rest-api/tree/master/helper"
 	"github.com/dracero/go-rest-api/tree/master/models"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
