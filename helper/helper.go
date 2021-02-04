@@ -70,11 +70,9 @@ func GetConfiguration() Configuration {
 		log.Fatalf("Error loading .env file")
 	}Esto lo tuve que comentar por las variables de entorno*/
 	
-	os.Setenv("PORT",GetPort())
-        os.Setenv("CONNECTION_STRING","mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")
 	configuration := Configuration{
-		os.Getenv("PORT"),
-		os.Getenv("CONNECTION_STRING"),
+		GetPort(),
+		//os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
