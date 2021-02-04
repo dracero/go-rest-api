@@ -69,7 +69,9 @@ func GetConfiguration() Configuration {
 	if err != nil {
 		log.Fatalf("Error loading .env file")
 	}Esto lo tuve que comentar por las variables de entorno*/
-
+	
+	os.Setenv("PORT",GetPort())
+        os.Setenv("CONNECTION_STRING","mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")
 	configuration := Configuration{
 		os.Getenv("PORT"),
 		os.Getenv("CONNECTION_STRING"),
@@ -156,14 +158,14 @@ func GetConfiguration() Configuration {
 	}
 
 	return configuration
-}
+}*/
 
 func GetPort() string {
-var port = os.Getenv("PORT")
+var port = ""//os.Getenv("PORT")
 // Set a default port if there is nothing in the environment
 if port == "" {
 		port = "4747"
  		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
  	}
  	return ":" + port
- }*/
+ }
