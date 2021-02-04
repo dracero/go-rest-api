@@ -13,6 +13,4 @@ require (
 	gopkg.in/bluesuncorp/validator.v5 v5.9.1 // indirect
 	github.com/gorilla/mux v1.7.2
         go.mongodb.org/mongo-driver v1.4.4 // indirect
-	github.com/dracero/go-rest-api/helper
-	github.com/dracero/go-rest-api/models
 )
