@@ -8,87 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	//"github.com/joho/godotenv" este lo tuve que comentar por las variables de entorno
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
-
-// ConnectDB : This is helper function to connect mongoDB
-// If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
-func ConnectDB() *mongo.Collection {
-	config := GetConfiguration()
-	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")//(config.ConnectionString)
-
-	// Connect to MongoDB
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Connected to MongoDB!")
-
-	collection := client.Database("go_rest_api").Collection("books")
-
-	return collection
-}
-
-// ErrorResponse : This is error model.
-type ErrorResponse struct {
-	StatusCode   int    `json:"status"`
-	ErrorMessage string `json:"message"`
-}
-
-// GetError : This is helper function to prepare error model.
-// If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
-func GetError(err error, w http.ResponseWriter) {
-
-	log.Fatal(err.Error())
-	var response = ErrorResponse{
-		ErrorMessage: err.Error(),
-		StatusCode:   http.StatusInternalServerError,
-	}
-
-	message, _ := json.Marshal(response)
-
-	w.WriteHeader(response.StatusCode)
-	w.Write(message)
-}
-
-// Configuration model
-type Configuration struct {
-	Port             string
-	ConnectionString string
-}
-
-// GetConfiguration method basically populate configuration information from .env and return Configuration model
-func GetConfiguration() Configuration {
-	/*err := godotenv.Load("./.env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}Esto lo tuve que comentar por las variables de entorno*/
-	
-	configuration := Configuration{
-		Port := GetPort(),
-		ConnectionString := "mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority",
-	}
-
-	return configuration
-}
-
-/*package helper
-
-import (
-	"context"
-	"encoding/json"
-	"fmt"
-	"log"
-	"net/http"
-	"os"
-
-	//"github.com/joho/godotenv"
+	"github.com/dracero/go-rest-api/blob/master/"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -144,26 +64,17 @@ type Configuration struct {
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
 func GetConfiguration() Configuration {
-	err := godotenv.Load("./.env")
+	var envFileName = "./.env"
+	err := env.Load(envFileName)
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
 	}
 
 	configuration := Configuration{
-		GetPort(),
-		"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority",
+		os.Getenv("PORT"),
+		os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
-}*/
-
-func GetPort() string {
-var port = ""//os.Getenv("PORT")
-// Set a default port if there is nothing in the environment
-if port == "" {
-		port = "4747"
- 		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
- 	}
- 	return ":" + port
- }
+}
