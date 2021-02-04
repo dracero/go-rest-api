@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/dracero/go-rest-api/tree/master/helper"
-	"github.com/dracero/go-rest-api/tree/master/models"
+	"github.com/dracero/go-rest-api/helper"
+	"github.com/dracero/go-rest-api/models"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
