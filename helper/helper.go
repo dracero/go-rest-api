@@ -18,7 +18,7 @@ import (
 func ConnectDB() *mongo.Collection {
 	config := GetConfiguration()
 	// Set client options
-	clientOptions := options.Client().ApplyURI(config.ConnectionString)
+	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")//(config.ConnectionString)
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
