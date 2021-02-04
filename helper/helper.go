@@ -71,8 +71,8 @@ func GetConfiguration() Configuration {
 	}Esto lo tuve que comentar por las variables de entorno*/
 	
 	configuration := Configuration{
-		GetPort(),
-		//os.Getenv("CONNECTION_STRING"),
+		Port := GetPort(),
+		ConnectionString := "mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority",
 	}
 
 	return configuration
