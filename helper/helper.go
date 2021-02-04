@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/dracero/go-rest-api/blob/master/"
+	"github.com/dracero/go-rest-api"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
