@@ -64,11 +64,11 @@ type Configuration struct {
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
 func GetConfiguration() Configuration {
-	/*err := godotenv.Load("./.env")
+	err := godotenv.Load("./.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
-	}*/
+	}
 
 	configuration := Configuration{
 		GetPort(),
