@@ -71,8 +71,8 @@ func GetConfiguration() Configuration {
 	}*/
 
 	configuration := Configuration{
-		"4747"//os.Getenv("PORT"),
-		"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"//os.Getenv("CONNECTION_STRING"),
+		Port := "4747"//os.Getenv("PORT"),
+		ConnectionString :="mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"//os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
