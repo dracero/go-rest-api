@@ -9,6 +9,7 @@ import (
 	"os"
 
 	//"github.com/joho/godotenv"
+	""
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -71,8 +72,8 @@ func GetConfiguration() Configuration {
 	}*/
 
 	configuration := Configuration{
-		Port := "4747"//os.Getenv("PORT"),
-		ConnectionString :="mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"//os.Getenv("CONNECTION_STRING"),
+		os.Getenv("PORT"),
+		os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
