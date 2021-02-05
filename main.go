@@ -19,7 +19,7 @@ import (
 )
 
 //Connection mongoDB with helper class
-var collection = helper.ConnectDB()
+var collection = ConnectDB()
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -31,7 +31,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 	cur, err := collection.Find(context.TODO(), bson.M{})
 
 	if err != nil {
-		helper.GetError(err, w)
+		GetError(err, w)
 		return
 	}
 
