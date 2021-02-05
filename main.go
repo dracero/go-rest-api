@@ -8,7 +8,8 @@ import (
 
 	//"github.com/faygun/go-rest-api/helper"
 	"github.com/heroku/go-getting-started/helper"
-	"github.com/faygun/go-rest-api/models"
+	//"github.com/faygun/go-rest-api/models"
+	"github.com/heroku/go-getting-started/models"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
