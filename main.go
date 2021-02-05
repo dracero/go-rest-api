@@ -170,7 +170,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
     fmt.Println("Endpoint Hit: homePage")
 }
 
-func main() {
+func handleRequests() {
 	//Init Router
 	r := mux.NewRouter().StrictSlash(true)
 	
@@ -184,4 +184,12 @@ func main() {
 	config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(config.Port, r))
 
+}
+
+func main() {
+    Articles = []Article{
+        Article{Id: "1", Title: "Hello", Desc: "Article Description", Content: "Article Content"},
+        Article{Id: "2", Title: "Hello 2", Desc: "Article Description", Content: "Article Content"},
+    }
+    handleRequests()
 }
