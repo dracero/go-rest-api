@@ -181,7 +181,6 @@ func main() {
 	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
         
-	log.Fatal(http.ListenAndServe(GetPort(), myRouter))
 	config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(config.Port, r))
 
