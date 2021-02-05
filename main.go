@@ -19,6 +19,16 @@ import (
 //Connection mongoDB with helper class
 var collection = helper.ConnectDB()
 
+// Article - Our struct for all articles
+type Article struct {
+    Id      string    `json:"Id"`
+    Title   string `json:"Title"`
+    Desc    string `json:"desc"`
+    Content string `json:"content"`
+}
+
+var Articles []
+
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
