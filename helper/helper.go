@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -64,11 +64,13 @@ type Configuration struct {
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
 func GetConfiguration() Configuration {
-	err := godotenv.Load("./.env")
+	os.Setenv(PORT, "4747")
+	os.Setenv(CONNECTION_STRING, "mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")
+	/*err := godotenv.Load("./.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
-	}
+	}*/
 
 	configuration := Configuration{
 		os.Getenv("PORT"),
