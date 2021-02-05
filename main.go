@@ -164,11 +164,16 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 }
 
 // var client *mongo.Client
+func homePage(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Welcome to the HomePage!")
+    fmt.Println("Endpoint Hit: homePage")
+}
 
 func main() {
 	//Init Router
 	r := mux.NewRouter()
-
+	
+        r.HandleFunc("/", homePage)
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
 	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
