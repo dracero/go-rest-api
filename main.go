@@ -172,7 +172,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	//Init Router
-	r := mux.NewRouter()
+	r := mux.NewRouter().StrictSlash(true)
 	
         r.HandleFunc("/", homePage)
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
@@ -180,7 +180,8 @@ func main() {
 	r.HandleFunc("/api/books", createBook).Methods("POST")
 	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
-
+        
+	log.Fatal(http.ListenAndServe(GetPort(), myRouter))
 	config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(config.Port, r))
 
