@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"fmt"
 
 	//"github.com/faygun/go-rest-api/helper"
 	"github.com/heroku/go-getting-started/helper"
