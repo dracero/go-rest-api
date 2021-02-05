@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	
-        "helper/helper"
+        "/helper/helper"
 	"github.com/faygun/go-rest-api/models"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
