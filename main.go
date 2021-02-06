@@ -9,7 +9,7 @@ import (
 	"os"//este borrarlo al dejar el código como antes
 
 	//"github.com/faygun/go-rest-api/helper"
-	//"github.com/heroku/go-getting-started/helper"
+	"github.com/heroku/go-getting-started/helper"
 	//"github.com/faygun/go-rest-api/models"
 	"github.com/heroku/go-getting-started/models"
 	"github.com/gorilla/mux"
