@@ -8,7 +8,7 @@ import (
 	"fmt"
 
 	//"github.com/faygun/go-rest-api/helper"
-	"github.com/heroku/go-getting-started/helper"
+	//"github.com/heroku/go-getting-started/helper"
 	//"github.com/faygun/go-rest-api/models"
 	//"github.com/heroku/go-getting-started/models"
 	"github.com/gorilla/mux"
@@ -182,9 +182,21 @@ func handleRequests() {
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")*/
         
 	config := helper.GetConfiguration()
-	log.Fatal(http.ListenAndServe(config.Port, r))
+	log.Fatal(http.ListenAndServe(GetPort(), r))
+	/*log.Fatal(http.ListenAndServe(config.Port, r))*/
 
 }
+
+func GetPort() string {
+var port = os.Getenv("PORT")
+// Set a default port if there is nothing in the environment
+if port == "" {
+		port = "4747"
+ 		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+ 	}
+ 	return ":" + port
+ }
+
 
 func main() {
     
