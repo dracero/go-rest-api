@@ -181,7 +181,7 @@ func handleRequests() {
 	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")*/
         
-	config := helper.GetConfiguration()
+	//config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(GetPort(), r))
 	/*log.Fatal(http.ListenAndServe(config.Port, r))*/
 
