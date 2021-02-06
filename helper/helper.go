@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	//"os"
 
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -57,7 +57,7 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration model
-type Configuration struct {
+/*type Configuration struct {
 	Port             string
 	ConnectionString string
 }
@@ -77,4 +77,4 @@ func GetConfiguration() Configuration {
 	}
 
 	return configuration
-}
+}*/
