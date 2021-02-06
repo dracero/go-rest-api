@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	//"os"
+	"os"
 
-	//"github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -57,13 +57,13 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration model
-/*type Configuration struct {
+type Configuration struct {
 	Port             string
 	ConnectionString string
-}*/
+}
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
-/*func GetConfiguration() Configuration {
+func GetConfiguration() Configuration {
 	err := godotenv.Load()
 
 	if err != nil {
@@ -78,15 +78,3 @@ func GetError(err error, w http.ResponseWriter) {
 
 	return configuration
 }
-
-// Get the Port from the environment so we can run on Heroku
-
-/*func GetPort() string {
-var port = os.Getenv("PORT")
-// Set a default port if there is nothing in the environment
-if port == "" {
-		port = "4747"
- 		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
- 	}
- 	return ":" + port
- }*/
