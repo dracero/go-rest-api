@@ -58,7 +58,7 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration modetype Configuration struct {
-	//Port             string
+	Port             string
 	ConnectionString string
 }
 
@@ -71,7 +71,7 @@ func GetConfiguration() Configuration {
 	}
 
 	configuration := Configuration{
-		//os.Getenv("PORT"),
+		os.Getenv("PORT"),
 		os.Getenv("CONNECTION_STRING"),
 	}
 
