@@ -1,3 +1,4 @@
+//"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"
 package helper
 
 import (
@@ -6,9 +7,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	//"os"
+	"os"
 
-	//"github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -56,9 +57,8 @@ func GetError(err error, w http.ResponseWriter) {
 	w.Write(message)
 }
 
-// Configuration model
-/*type Configuration struct {
-	Port             string
+// Configuration modetype Configuration struct {
+	//Port             string
 	ConnectionString string
 }
 
@@ -71,10 +71,9 @@ func GetConfiguration() Configuration {
 	}
 
 	configuration := Configuration{
-		os.Getenv("PORT"),
-		//"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"
+		//os.Getenv("PORT"),
 		os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
-}*/
+}
