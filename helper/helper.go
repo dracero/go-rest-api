@@ -19,7 +19,7 @@ import (
 func ConnectDB() *mongo.Collection {
 	config := GetConfiguration()
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")
+	clientOptions := options.Client().ApplyURI(config.ConnectionString)
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
@@ -57,14 +57,15 @@ func GetError(err error, w http.ResponseWriter) {
 	w.Write(message)
 }
 
-// Configuration modetype Configuration struct {
+// Configuration model
+type Configuration struct {
 	Port             string
 	ConnectionString string
 }
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
 func GetConfiguration() Configuration {
-	err := godotenv.Load()
+	err := godotenv.Load("./.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
