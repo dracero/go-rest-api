@@ -10,14 +10,14 @@ import (
 	//"github.com/faygun/go-rest-api/helper"
 	"github.com/heroku/go-getting-started/helper"
 	//"github.com/faygun/go-rest-api/models"
-	"github.com/heroku/go-getting-started/models"
+	//"github.com/heroku/go-getting-started/models"
 	"github.com/gorilla/mux"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
+	//"go.mongodb.org/mongo-driver/bson"
+	//"go.mongodb.org/mongo-driver/bson/primitive"*/
 )
 
 //Connection mongoDB with helper class
-var collection = helper.ConnectDB()
+/*var collection = helper.ConnectDB()
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -35,10 +35,10 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 
 	// Close the cursor once finished
 	/*A defer statement defers the execution of a function until the surrounding function returns.
-	simply, run cur.Close() process but after cur.Next() finished.*/
-	defer cur.Close(context.TODO())
+	simply, run cur.Close() process but after cur.Next() finished.
+	defer cur.Close(context.TODO())*/
 
-	for cur.Next(context.TODO()) {
+	/*for cur.Next(context.TODO()) {
 
 		// create a value into which the single document can be decoded
 		var book models.Book
@@ -162,7 +162,7 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(deleteResult)
-}
+}*/
 
 // var client *mongo.Client
 func homePage(w http.ResponseWriter, r *http.Request) {
@@ -175,11 +175,11 @@ func handleRequests() {
 	r := mux.NewRouter().StrictSlash(true)
 	
         r.HandleFunc("/", homePage)
-	r.HandleFunc("/api/books", getBooks).Methods("GET")
+	/*r.HandleFunc("/api/books", getBooks).Methods("GET")
 	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
 	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
-	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
+	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")*/
         
 	config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(config.Port, r))
