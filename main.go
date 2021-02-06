@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"fmt"
-	"os"//este borrarlo al dejar el código como antes
+	//"os"//este borrarlo al dejar el código como antes
 
 	"github.com/heroku/go-getting-started/helper"
 	"github.com/heroku/go-getting-started/models"
@@ -180,13 +180,13 @@ func handleRequests() {
 	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
         
-	//config := helper.GetConfiguration()
-	log.Fatal(http.ListenAndServe(GetPort(), r))
-	/*log.Fatal(http.ListenAndServe(config.Port, r))*/
+	config := helper.GetConfiguration()
+	//log.Fatal(http.ListenAndServe(GetPort(), r))
+	log.Fatal(http.ListenAndServe(config.Port, r))
 
 }
 
-func GetPort() string {
+/*func GetPort() string {
 var port = os.Getenv("PORT")
 // Set a default port if there is nothing in the environment
 if port == "" {
@@ -194,7 +194,7 @@ if port == "" {
  		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
  	}
  	return ":" + port
- }
+ }*/
 
 
 func main() {
