@@ -12,7 +12,7 @@ import (
 	"github.com/heroku/go-getting-started/models"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"*/
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 //Connection mongoDB with helper class
