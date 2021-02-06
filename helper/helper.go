@@ -16,9 +16,9 @@ import (
 // ConnectDB : This is helper function to connect mongoDB
 // If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
 func ConnectDB() *mongo.Collection {
-	config := GetConfiguration()
+	//config := GetConfiguration()
 	// Set client options
-	clientOptions := options.Client().ApplyURI(config.ConnectionString)
+	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")//config.ConnectionString)
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
@@ -57,13 +57,13 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration model
-type Configuration struct {
+/*type Configuration struct {
 	Port             string
 	ConnectionString string
-}
+}*/
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
-func GetConfiguration() Configuration {
+/*func GetConfiguration() Configuration {
 	err := godotenv.Load()
 
 	if err != nil {
@@ -87,4 +87,4 @@ if port == "" {
  		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
  	}
  	return ":" + port
- }
+ }*/
