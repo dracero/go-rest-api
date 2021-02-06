@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	//"os"
+	"os"
 
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -16,9 +16,9 @@ import (
 // ConnectDB : This is helper function to connect mongoDB
 // If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
 func ConnectDB() *mongo.Collection {
-	//config := GetConfiguration()
+	config := GetConfiguration()
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")//config.ConnectionString)
+	clientOptions := options.Client().ApplyURI(config.ConnectionString)
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
@@ -57,13 +57,13 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration model
-/*type Configuration struct {
-	Port             string
+type Configuration struct {
+	//Port             string
 	ConnectionString string
-}*/
+}
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
-/*func GetConfiguration() Configuration {
+func GetConfiguration() Configuration {
 	err := godotenv.Load()
 
 	if err != nil {
@@ -71,15 +71,17 @@ func GetError(err error, w http.ResponseWriter) {
 	}
 
 	configuration := Configuration{
-		GetPort(),//os.Getenv("PORT"),
-		"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority",//os.Getenv("CONNECTION_STRING"),
+		os.Getenv("PORT"),
+		//"mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority"
+		os.Getenv("CONNECTION_STRING"),
 	}
 
 	return configuration
 }
 
 // Get the Port from the environment so we can run on Heroku
-func GetPort() string {
+
+/*func GetPort() string {
 var port = os.Getenv("PORT")
 // Set a default port if there is nothing in the environment
 if port == "" {
