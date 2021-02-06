@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	//"os"
 
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -18,7 +18,7 @@ import (
 func ConnectDB() *mongo.Collection {
 	config := GetConfiguration()
 	// Set client options
-	clientOptions := options.Client().ApplyURI(config.ConnectionString)
+	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
@@ -57,13 +57,13 @@ func GetError(err error, w http.ResponseWriter) {
 }
 
 // Configuration model
-type Configuration struct {
+/*type Configuration struct {
 	Port             string
 	ConnectionString string
-}
+}*/
 
 // GetConfiguration method basically populate configuration information from .env and return Configuration model
-func GetConfiguration() Configuration {
+/*func GetConfiguration() Configuration {
 	err := godotenv.Load()
 
 	if err != nil {
