@@ -17,7 +17,7 @@ import (
 // ConnectDB : This is helper function to connect mongoDB
 // If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
 func ConnectDB() *mongo.Collection {
-	config := GetConfiguration()
+	//config := GetConfiguration() Volver a ponerlo si no funca
 	// Set client options
 	clientOptions := options.Client().ApplyURI("mongodb+srv://brad123:brad123@cluster0.zf9fl.mongodb.net/go-rest-api?retryWrites=true&w=majority")//(config.ConnectionString)
 
