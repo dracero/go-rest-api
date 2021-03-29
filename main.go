@@ -63,6 +63,8 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 func getBook(w http.ResponseWriter, r *http.Request) {
 	// set header.
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	var book models.Book
 	// we get params with mux.
@@ -85,6 +87,8 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 
 func createBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	var book models.Book
 
@@ -104,6 +108,8 @@ func createBook(w http.ResponseWriter, r *http.Request) {
 
 func updateBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	var params = mux.Vars(r)
 
@@ -145,6 +151,8 @@ func updateBook(w http.ResponseWriter, r *http.Request) {
 func deleteBook(w http.ResponseWriter, r *http.Request) {
 	// Set header
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	// get params
 	var params = mux.Vars(r)
