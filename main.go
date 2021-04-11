@@ -109,8 +109,8 @@ func createBook(w http.ResponseWriter, r *http.Request) {
 func updateBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-        w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-        w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	
 	var params = mux.Vars(r)
 
@@ -188,7 +188,7 @@ func handleRequests() {
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
 	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
-	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
+	r.HandleFunc("/api/updbooks/{id}", updateBook).Methods("POST")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
         
 	//config := helper.GetConfiguration()
