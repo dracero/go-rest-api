@@ -187,7 +187,7 @@ func handleRequests() {
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
 	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
-	r.HandleFunc("/api/books/{id}", updateBook).Methods("POST")
+	r.HandleFunc("/api/updbooks/{id}", updateBook).Methods("POST")
 	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
         
 	//config := helper.GetConfiguration()
