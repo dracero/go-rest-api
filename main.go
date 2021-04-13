@@ -188,7 +188,7 @@ func handleRequests() {
 	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
 	r.HandleFunc("/api/updbooks/{id}", updateBook).Methods("POST")
-	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
+	r.HandleFunc("/api/delbooks/{id}", deleteBook).Methods("POST")
         
 	//config := helper.GetConfiguration()
 	log.Fatal(http.ListenAndServe(GetPort(), r))
